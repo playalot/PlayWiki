@@ -1,0 +1,82 @@
+<template>
+    <div>
+        <scroller>
+            <image src="{{ toy.cover}}" resize="cover" style="width: 750px; height: 750px"></image>
+            <text class="title-label"> {{ toy.name }}</text>
+            <conteiner repeat="{{ i in toy.info}}">
+                <div>
+                  <text class="toy-info-label">{{i.key}} : {{i.value}}</text>
+                </div>
+                <div class="toy-sp-line"></div>
+            </conteiner>
+            <text class="title-label" style="margin-top: 40px">官方图片</text>
+            <conteiner repeat="{{ i in images }}">
+              <div style="width: 750px; height: 375px; flex-direction: row">
+                <image src="{{ i.left }}" class="toy-image-list-item" resize="cover"></image>
+                <image src="{{ i.right }}" class="toy-image-list-item" resize="cover"></image>
+              </div>
+            </container>
+        </scroller>
+    </div>
+
+</template>
+
+<script>
+
+    var apis = require('../common/api');
+    module.exports =  {
+        data: {
+            toy: {},
+            images: []
+        },
+        created: function () {
+            var self = this;
+            apis.getToyDetailById("", function(json) {
+                self.toy = json.data;
+                var imgs = json.data.images;
+                var count = Math.ceil(imgs.length/2);
+                var temp = [];
+                for(var i = 0; i < count; i++){
+                  temp[i] = {left: imgs[i*2], right: imgs[i*2 + 1]};
+                }
+                self.images = temp;
+            })
+        },
+        method: {
+            getParameterByName: function (name, url) {
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                        results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+        }
+    };
+
+</script>
+
+<style>
+    .title-label {
+        width: 722px;
+        color: #555555;
+        font-size: 40px;
+        margin: 14px;
+    }
+    .toy-info-label {
+      width: 722px;
+      color: #555555;
+      font-size: 30px;
+      margin: 14px;
+    }
+    .toy-sp-line {
+        margin-left: 20px;
+        background-color: #EEEEEE;
+        height: 2px;
+    }
+    .toy-image-list-item {
+      width: 375px;
+      height: 375px;
+      background-color: #222222
+    }
+</style>

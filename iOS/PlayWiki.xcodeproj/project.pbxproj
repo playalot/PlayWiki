@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6A53A3BF1DD7593000CF6E8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A53A3BE1DD7593000CF6E8E /* main.m */; };
+		6A53A3C21DD7593000CF6E8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A53A3C11DD7593000CF6E8E /* AppDelegate.m */; };
+		6A53A3CA1DD7593000CF6E8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A53A3C91DD7593000CF6E8E /* Assets.xcassets */; };
+		6A53A3CD1DD7593000CF6E8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A53A3CB1DD7593000CF6E8E /* LaunchScreen.storyboard */; };
+		6A53A3D71DD759E600CF6E8E /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 6A53A3D61DD759E600CF6E8E /* dist */; };
+		6A53A3DA1DD75B1D00CF6E8E /* PlayWikiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A53A3D91DD75B1D00CF6E8E /* PlayWikiViewController.m */; };
+		6A53A3DD1DD760A800CF6E8E /* WXImgLoaderDefaultImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A53A3DC1DD760A800CF6E8E /* WXImgLoaderDefaultImpl.m */; };
+		D6C0CC8153EC609B7A202A1A /* libPods-PlayWiki.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F656EF4B6C408ADA10293776 /* libPods-PlayWiki.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6A53A3BA1DD7593000CF6E8E /* PlayWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A53A3BE1DD7593000CF6E8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6A53A3C01DD7593000CF6E8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6A53A3C11DD7593000CF6E8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6A53A3C91DD7593000CF6E8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6A53A3CC1DD7593000CF6E8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6A53A3CE1DD7593000CF6E8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A53A3D61DD759E600CF6E8E /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
+		6A53A3D81DD75B1D00CF6E8E /* PlayWikiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayWikiViewController.h; sourceTree = "<group>"; };
+		6A53A3D91DD75B1D00CF6E8E /* PlayWikiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayWikiViewController.m; sourceTree = "<group>"; };
+		6A53A3DB1DD760A800CF6E8E /* WXImgLoaderDefaultImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXImgLoaderDefaultImpl.h; sourceTree = "<group>"; };
+		6A53A3DC1DD760A800CF6E8E /* WXImgLoaderDefaultImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXImgLoaderDefaultImpl.m; sourceTree = "<group>"; };
+		6E816AA948AD4F0EBB17566A /* Pods-PlayWiki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayWiki.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayWiki/Pods-PlayWiki.debug.xcconfig"; sourceTree = "<group>"; };
+		F656EF4B6C408ADA10293776 /* libPods-PlayWiki.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlayWiki.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8CB226F49E912C09EE3E15B /* Pods-PlayWiki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayWiki.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayWiki/Pods-PlayWiki.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6A53A3B71DD7593000CF6E8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6C0CC8153EC609B7A202A1A /* libPods-PlayWiki.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10FF7C9A3483BEF9EDDA5E93 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6E816AA948AD4F0EBB17566A /* Pods-PlayWiki.debug.xcconfig */,
+				F8CB226F49E912C09EE3E15B /* Pods-PlayWiki.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6A53A3B11DD7593000CF6E8E = {
+			isa = PBXGroup;
+			children = (
+				6A53A3BC1DD7593000CF6E8E /* PlayWiki */,
+				6A53A3BB1DD7593000CF6E8E /* Products */,
+				10FF7C9A3483BEF9EDDA5E93 /* Pods */,
+				809247F82C1346C81C943C4A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6A53A3BB1DD7593000CF6E8E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6A53A3BA1DD7593000CF6E8E /* PlayWiki.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6A53A3BC1DD7593000CF6E8E /* PlayWiki */ = {
+			isa = PBXGroup;
+			children = (
+				6A53A3D51DD759CE00CF6E8E /* AppDelegate */,
+				6A53A3D41DD759C200CF6E8E /* Source */,
+				6A53A3BD1DD7593000CF6E8E /* Supporting Files */,
+				6A53A3D81DD75B1D00CF6E8E /* PlayWikiViewController.h */,
+				6A53A3D91DD75B1D00CF6E8E /* PlayWikiViewController.m */,
+				6A53A3DB1DD760A800CF6E8E /* WXImgLoaderDefaultImpl.h */,
+				6A53A3DC1DD760A800CF6E8E /* WXImgLoaderDefaultImpl.m */,
+			);
+			path = PlayWiki;
+			sourceTree = "<group>";
+		};
+		6A53A3BD1DD7593000CF6E8E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6A53A3BE1DD7593000CF6E8E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6A53A3D41DD759C200CF6E8E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6A53A3D61DD759E600CF6E8E /* dist */,
+				6A53A3C91DD7593000CF6E8E /* Assets.xcassets */,
+				6A53A3CB1DD7593000CF6E8E /* LaunchScreen.storyboard */,
+				6A53A3CE1DD7593000CF6E8E /* Info.plist */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		6A53A3D51DD759CE00CF6E8E /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				6A53A3C01DD7593000CF6E8E /* AppDelegate.h */,
+				6A53A3C11DD7593000CF6E8E /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		809247F82C1346C81C943C4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F656EF4B6C408ADA10293776 /* libPods-PlayWiki.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6A53A3B91DD7593000CF6E8E /* PlayWiki */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A53A3D11DD7593000CF6E8E /* Build configuration list for PBXNativeTarget "PlayWiki" */;
+			buildPhases = (
+				69245264A3E3FA1A3982500F /* [CP] Check Pods Manifest.lock */,
+				6A53A3B61DD7593000CF6E8E /* Sources */,
+				6A53A3B71DD7593000CF6E8E /* Frameworks */,
+				6A53A3B81DD7593000CF6E8E /* Resources */,
+				5D19BC35A62254D32231F367 /* [CP] Embed Pods Frameworks */,
+				32641D334BB0411049DF92AA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlayWiki;
+			productName = PlayWiki;
+			productReference = 6A53A3BA1DD7593000CF6E8E /* PlayWiki.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6A53A3B21DD7593000CF6E8E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = Tbxark;
+				TargetAttributes = {
+					6A53A3B91DD7593000CF6E8E = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 858CBVXSWP;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6A53A3B51DD7593000CF6E8E /* Build configuration list for PBXProject "PlayWiki" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6A53A3B11DD7593000CF6E8E;
+			productRefGroup = 6A53A3BB1DD7593000CF6E8E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6A53A3B91DD7593000CF6E8E /* PlayWiki */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6A53A3B81DD7593000CF6E8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A53A3D71DD759E600CF6E8E /* dist in Resources */,
+				6A53A3CD1DD7593000CF6E8E /* LaunchScreen.storyboard in Resources */,
+				6A53A3CA1DD7593000CF6E8E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32641D334BB0411049DF92AA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlayWiki/Pods-PlayWiki-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D19BC35A62254D32231F367 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlayWiki/Pods-PlayWiki-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69245264A3E3FA1A3982500F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6A53A3B61DD7593000CF6E8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A53A3C21DD7593000CF6E8E /* AppDelegate.m in Sources */,
+				6A53A3DD1DD760A800CF6E8E /* WXImgLoaderDefaultImpl.m in Sources */,
+				6A53A3BF1DD7593000CF6E8E /* main.m in Sources */,
+				6A53A3DA1DD75B1D00CF6E8E /* PlayWikiViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6A53A3CB1DD7593000CF6E8E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A53A3CC1DD7593000CF6E8E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6A53A3CF1DD7593000CF6E8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6A53A3D01DD7593000CF6E8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6A53A3D21DD7593000CF6E8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E816AA948AD4F0EBB17566A /* Pods-PlayWiki.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 858CBVXSWP;
+				INFOPLIST_FILE = PlayWiki/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.play.PlayWiki;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6A53A3D31DD7593000CF6E8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8CB226F49E912C09EE3E15B /* Pods-PlayWiki.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 858CBVXSWP;
+				INFOPLIST_FILE = PlayWiki/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.play.PlayWiki;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6A53A3B51DD7593000CF6E8E /* Build configuration list for PBXProject "PlayWiki" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A53A3CF1DD7593000CF6E8E /* Debug */,
+				6A53A3D01DD7593000CF6E8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A53A3D11DD7593000CF6E8E /* Build configuration list for PBXNativeTarget "PlayWiki" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A53A3D21DD7593000CF6E8E /* Debug */,
+				6A53A3D31DD7593000CF6E8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6A53A3B21DD7593000CF6E8E /* Project object */;
+}
