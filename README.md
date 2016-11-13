@@ -1,6 +1,6 @@
 # PlayWiki
 
-
+![](logo.PNG)
 
 
 ## How to start
