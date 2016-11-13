@@ -28,9 +28,7 @@
 {
     [super viewDidLoad];
     self.title = @"玩具百科";
-    self.navigationController.navigationBar.translucent = false;
-    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    self.navigationController.navigationBar.hidden = true;
     [self render];
     
 }
@@ -69,6 +67,10 @@
     
     [_instance renderWithURL:[NSURL URLWithString:url] options:@{@"bundleUrl":url} data:nil];
     
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return true;
 }
 
 - (void)didReceiveMemoryWarning

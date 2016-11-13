@@ -24,7 +24,6 @@
     [WXSDKEngine initSDKEnviroment];
     [WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[PlayWikiViewController new]];
-
     [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;

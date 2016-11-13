@@ -1,0 +1,115 @@
+<template>
+    <div>
+        <scroller>
+            <image src='http://img.playalot.cn/{{toy.cover}}' resize='cover' style='width: 750px; height: 750px; background-color: #BBBBBB;'></image>
+            <text class='title-label'> {{ toy.name }}</text>
+            <container repeat='{{ i in infos}}'>
+                <div>
+                  <text class='toy-info-label'>{{i.key}} : {{i.value}}</text>
+                </div>
+                <div class='toy-sp-line'></div>
+            </container>
+            <text class='title-label' style='margin-top: 40px'>官方图片</text>
+            <container repeat='{{ i in images }}'>
+              <div style='width: 750px; height: 375px; flex-direction: row'>
+                <image src='http://img.playalot.cn/{{i.left }}' class='toy-image-list-item' resize='cover'></image>
+                <image src='http://img.playalot.cn/{{ i.right }}' class='toy-image-list-item' resize='cover'></image>
+              </div>
+            </container>
+        </scroller>
+    </div>
+
+</template>
+
+<script>
+
+    var apis = require('./common/api');
+    module.exports =  {
+        data: {
+            toy: {},
+            images: [],
+            infos: [],
+            id: '569757c101000001002933cd'
+        },
+        created: function () {
+            var self = this;
+            var bundleUrl = this.$getConfig().bundleUrl;
+            var getParameterByName = function (name, url) {
+                name = name.replace(/[\[\]]/g, '\\$&');
+                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                        results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
+            self.id = getParameterByName('id', bundleUrl);
+            apis.getToyDetailById(self.id, function(json) {
+                self.toy = json.data;
+                var info = json.data.info;
+                var imgs = json.data.images;
+                var count = Math.ceil(imgs.length/2);
+                var temp = [];
+                for(var i = 0; i < count; i++){
+                  temp[i] = {left: imgs[i*2], right: imgs[i*2 + 1]};
+                }
+                self.images = temp;
+                var infoTemp = [];
+                var data = json.data;
+                if (data != null && data != undefined) {
+                  var pushObj = function(array, k, v) {
+                    if (v != null && v != undefined) {
+                      array.push({key: k, value: v});
+                    }
+                  }
+                  pushObj(infoTemp,'原名', data.nameRaw);
+                  pushObj(infoTemp,'发售日', data.release);
+                  var info = data.info;
+                  if (info != null && info != undefined) {
+                    pushObj(infoTemp,'价格', info.money);
+                    pushObj(infoTemp,'公司', info.company);
+                    pushObj(infoTemp,'比例', info.scale);
+                    pushObj(infoTemp,'系列', info.series);
+                    pushObj(infoTemp,'角色', info.character);
+                    pushObj(infoTemp,'原著', info.origin);
+                    pushObj(infoTemp,'原型师', info.artist);
+                  }
+                  pushObj(infoTemp,'详细描述', data.detail);
+                  self.infos =  infoTemp;
+                }
+
+
+            })
+        },
+        ready: function(){
+        },
+        method: {
+
+        }
+    };
+
+</script>
+
+<style>
+    .title-label {
+        width: 722px;
+        color: #555555;
+        font-size: 40px;
+        margin: 14px;
+    }
+    .toy-info-label {
+      width: 722px;
+      color: #555555;
+      font-size: 30px;
+      margin: 14px;
+    }
+    .toy-sp-line {
+        margin-left: 20px;
+        background-color: #EEEEEE;
+        height: 2px;
+    }
+    .toy-image-list-item {
+      width: 375px;
+      height: 375px;
+      background-color: #BBBBBB;
+    }
+</style>

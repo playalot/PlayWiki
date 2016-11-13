@@ -21,27 +21,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ft4-ZY-nub">
-                                <rect key="frame" x="0.0" y="311.5" width="375" height="44.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="wxd-yu-t33">
+                                <rect key="frame" x="97" y="243" width="180" height="180"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="YQ7-nb-lXS"/>
+                                    <constraint firstAttribute="height" constant="180" id="LrD-Gs-VwM"/>
+                                    <constraint firstAttribute="width" constant="180" id="Ze3-Qe-0Pd"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Play Wiki">
-                                        <attributes>
-                                            <font key="NSFont" size="34" name="Futura-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ft4-ZY-nub" secondAttribute="trailing" id="EW6-9S-N9G"/>
-                            <constraint firstItem="Ft4-ZY-nub" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Em9-Cf-8ya"/>
-                            <constraint firstItem="Ft4-ZY-nub" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="pYW-CL-Oot"/>
+                            <constraint firstItem="wxd-yu-t33" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1rV-hW-01t"/>
+                            <constraint firstItem="wxd-yu-t33" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="wfn-p1-bAw"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -50,4 +41,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="400" height="400"/>
+    </resources>
 </document>

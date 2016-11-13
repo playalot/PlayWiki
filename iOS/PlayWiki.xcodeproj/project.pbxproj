@@ -11,9 +11,9 @@
 		6A53A3C21DD7593000CF6E8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A53A3C11DD7593000CF6E8E /* AppDelegate.m */; };
 		6A53A3CA1DD7593000CF6E8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A53A3C91DD7593000CF6E8E /* Assets.xcassets */; };
 		6A53A3CD1DD7593000CF6E8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A53A3CB1DD7593000CF6E8E /* LaunchScreen.storyboard */; };
-		6A53A3D71DD759E600CF6E8E /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 6A53A3D61DD759E600CF6E8E /* dist */; };
 		6A53A3DA1DD75B1D00CF6E8E /* PlayWikiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A53A3D91DD75B1D00CF6E8E /* PlayWikiViewController.m */; };
 		6A53A3DD1DD760A800CF6E8E /* WXImgLoaderDefaultImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A53A3DC1DD760A800CF6E8E /* WXImgLoaderDefaultImpl.m */; };
+		6A53A3E71DD78DE200CF6E8E /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 6A53A3E61DD78DE200CF6E8E /* dist */; };
 		D6C0CC8153EC609B7A202A1A /* libPods-PlayWiki.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F656EF4B6C408ADA10293776 /* libPods-PlayWiki.a */; };
 /* End PBXBuildFile section */
 
@@ -25,11 +25,11 @@
 		6A53A3C91DD7593000CF6E8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A53A3CC1DD7593000CF6E8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A53A3CE1DD7593000CF6E8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A53A3D61DD759E600CF6E8E /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
 		6A53A3D81DD75B1D00CF6E8E /* PlayWikiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayWikiViewController.h; sourceTree = "<group>"; };
 		6A53A3D91DD75B1D00CF6E8E /* PlayWikiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayWikiViewController.m; sourceTree = "<group>"; };
 		6A53A3DB1DD760A800CF6E8E /* WXImgLoaderDefaultImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXImgLoaderDefaultImpl.h; sourceTree = "<group>"; };
 		6A53A3DC1DD760A800CF6E8E /* WXImgLoaderDefaultImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXImgLoaderDefaultImpl.m; sourceTree = "<group>"; };
+		6A53A3E61DD78DE200CF6E8E /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dist; path = ../../dist; sourceTree = "<group>"; };
 		6E816AA948AD4F0EBB17566A /* Pods-PlayWiki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayWiki.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayWiki/Pods-PlayWiki.debug.xcconfig"; sourceTree = "<group>"; };
 		F656EF4B6C408ADA10293776 /* libPods-PlayWiki.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlayWiki.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CB226F49E912C09EE3E15B /* Pods-PlayWiki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayWiki.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayWiki/Pods-PlayWiki.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		6A53A3D41DD759C200CF6E8E /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				6A53A3D61DD759E600CF6E8E /* dist */,
+				6A53A3E61DD78DE200CF6E8E /* dist */,
 				6A53A3C91DD7593000CF6E8E /* Assets.xcassets */,
 				6A53A3CB1DD7593000CF6E8E /* LaunchScreen.storyboard */,
 				6A53A3CE1DD7593000CF6E8E /* Info.plist */,
@@ -186,7 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A53A3D71DD759E600CF6E8E /* dist in Resources */,
+				6A53A3E71DD78DE200CF6E8E /* dist in Resources */,
 				6A53A3CD1DD7593000CF6E8E /* LaunchScreen.storyboard in Resources */,
 				6A53A3CA1DD7593000CF6E8E /* Assets.xcassets in Resources */,
 			);

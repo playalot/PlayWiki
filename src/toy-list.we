@@ -1,0 +1,114 @@
+<template>
+  <div>
+    <div style='width: 750px; height:100px; background-color: white'>
+      <div style='flex-direction: row'>
+        <input id='search-input-bar'
+          autofocus="true"
+          style='width: 700px; height: 95px; color: #888888; padding-left: 10px'
+          placeholder='Please input keyword'
+          onchange='inputComplete'></input>
+        <text style='width50px; height95px; color: #888888; font-size: 40px; padding-top:20px' onclick='starToSearch'>↩︎</text>
+      </div>
+      <color-line width='750px' height='5'></color-line>
+    </div>
+    <list>
+      <cell repeat='{{ toys }}'>
+        <container class='toy-container' toyid='{{id}}' onclick='onToyItemClick'>
+          <image class='toy-cover' resize='cover' src='{{ cover }}'></image>
+          <div class='toy-info'>
+            <text  style='height: 70px; width: 520px; margin-bottom: 20px; font-size: 30px; color: #666666; '>{{ name }}</text>
+            <text  class='toy-common-info-text'>厂商: {{ company }}</text>
+            <text  class='toy-common-info-text'>发售: {{ release }}</text>
+            <text  class='toy-common-info-text'>价格: {{  money  }}</text>
+          </div>
+        </container>
+        <div class='toy-sp-line'></div>
+      </cell>
+    </list>
+  </div>
+</template>
+
+<script>
+  var apis = require('./common/api');
+  var dom = require('@weex-module/dom')
+  var navigator = require('@weex-module/navigator');
+
+  module.exports =  {
+    data: {
+      toys: [],
+      baseURL: '',
+      searchText: ''
+    },
+    methods: {
+      onToyItemClick: function (e) {
+        var self = this;
+        var itemid = e.target.attr.toyid;
+        var params = {
+          'url': this.baseURL + './toy-detail.js?id=' + itemid,
+          'animated': 'true'
+        };
+        navigator.push(params, function (e) {});
+      },
+      inputComplete: function(e) {
+        var self = this;
+        var text = e.value;
+        if (text != undefined && text != null && text != '' && text != self.searchText) {
+          apis.searchToysByName(text, function(json) {
+            self.toys = json.data.toys;
+          });
+        } else {
+          navigator.pop({'animated': 'false'}, function(e){});
+        }
+
+      },
+      starToSearch: function(e) {
+        var self = this;
+        var bar = self.$el('search-input-bar');
+        var text = bar.text;
+        if (text!= undefined && text!= null && text != "" && text != self.searchText) {
+          self.searchText = text;
+          apis.searchToysByName(text, function(json) {
+            self.toys = json.data.toys;
+          });
+        }
+      }
+    },
+    created: function () {
+      var self = this;
+      var bundleUrl = this.$getConfig().bundleUrl;
+      this.baseURL = apis.getBaseUrl(bundleUrl,true);
+
+    }
+  };
+</script>
+
+<style>
+  .toy-container {
+    width: 750px;
+    height: 200px;
+    margin: 10px;
+    flex-direction: row;
+  }
+  .toy-cover {
+    height:200px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #BBBBBB;
+  }
+  .toy-info {
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-direction: column;
+  }
+  .toy-common-info-text {
+    height: 35px;
+    font-size: 25px;
+    color: #999999;
+    padding-bottom: 0px;
+  }
+  .toy-sp-line {
+    margin-left: 20px;
+    background-color: #EEEEEE;
+    height: 2px;
+  }
+</style>
