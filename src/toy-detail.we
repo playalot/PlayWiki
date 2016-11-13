@@ -1,8 +1,17 @@
 <template>
-    <div>
+  <div>
+    <div if='{{showSlider}}' style='position: absolute; top: 0px; left:0px; z-index:1; width: 750px; height: {{ height }};'>
+      <slider auto-play='false' append='tree' style='width: 750px; height: {{ height }};'>
+        <div  repeat='{{ i in imgList }}' style="width: 750px; height: {{ height }};">
+            <image style='width: 750px; height: {{ height }}; background-color: #222222' resize='contain' src='http://img.playalot.cn/{{i}}' onclick="tapToHideSlider"></image>
+        </div>
+        <indicator class="indicator" style="top: {{height - 50}}"></indicator>
+      </slider>
+    </div>
+    <div if='{{showDetail}}' style='position: absolute; top: 0px; z-index:-1; left:0px; width: 750px; height: {{ height }}'>
         <scroller>
-            <image src='http://img.playalot.cn/{{toy.cover}}' resize='cover' style='width: 750px; height: 750px; background-color: #BBBBBB;'></image>
-            <text class='title-label'> {{ toy.name }}</text>
+            <image src='http://img.playalot.cn/{{cover}}' resize='cover' style='width: 750px; height: 750px; background-color: #BBBBBB;'></image>
+            <text class='title-label'> {{ name }}</text>
             <container repeat='{{ i in infos}}'>
                 <div>
                   <text class='toy-info-label'>{{i.key}} : {{i.value}}</text>
@@ -12,24 +21,43 @@
             <text class='title-label' style='margin-top: 40px'>官方图片</text>
             <container repeat='{{ i in images }}'>
               <div style='width: 750px; height: 375px; flex-direction: row'>
-                <image src='http://img.playalot.cn/{{i.left }}' class='toy-image-list-item' resize='cover'></image>
-                <image src='http://img.playalot.cn/{{ i.right }}' class='toy-image-list-item' resize='cover'></image>
+                <image src='http://img.playalot.cn/{{i.left }}' class='toy-image-list-item' resize='contain' onclick="tapToShowSlider"></image>
+                <image src='http://img.playalot.cn/{{ i.right }}' class='toy-image-list-item' resize='contain' onclick="tapToShowSlider"></image>
               </div>
             </container>
         </scroller>
     </div>
-
+  </div>
 </template>
 
 <script>
-
+    require('weex-components');
+    var dom = require('@weex-module/dom');
     var apis = require('./common/api');
     module.exports =  {
         data: {
-            toy: {},
+            id: '',
+            name: {},
+            cover:'',
             images: [],
+            imgList: [],
             infos: [],
-            id: '569757c101000001002933cd'
+            showSlider: false
+        },
+        computed: {
+            height: {
+              get: function() {
+                var w = this.$getConfig().env.deviceWidth;
+                var h = this.$getConfig().env.deviceHeight;
+                return 750/w*h;
+              }
+            },
+            showDetail: {
+              get: function() {
+                return  (this.showSlider == true) ? false : true;
+              }
+            }
+
         },
         created: function () {
             var self = this;
@@ -44,11 +72,13 @@
             }
             self.id = getParameterByName('id', bundleUrl);
             apis.getToyDetailById(self.id, function(json) {
-                self.toy = json.data;
+                self.name = json.data.name;
+                self.cover = json.data.cover;
                 var info = json.data.info;
                 var imgs = json.data.images;
                 var count = Math.ceil(imgs.length/2);
                 var temp = [];
+                self.imgList = imgs;
                 for(var i = 0; i < count; i++){
                   temp[i] = {left: imgs[i*2], right: imgs[i*2 + 1]};
                 }
@@ -76,14 +106,17 @@
                   pushObj(infoTemp,'详细描述', data.detail);
                   self.infos =  infoTemp;
                 }
-
-
             })
         },
         ready: function(){
         },
-        method: {
-
+        methods: {
+          tapToShowSlider: function() {
+              this.showSlider = true;
+          },
+          tapToHideSlider: function() {
+              this.showSlider = false;
+          }
         }
     };
 
@@ -113,5 +146,12 @@
       border-style: solid;
       border-width: 2px;
       border-color: #EEEEEE;
+    }
+    .indicator {
+        position: absolute;
+        width: 750px;
+        height: 20px;
+        itemColor: #FFFFFF;
+        itemSelectedColor: rgb(40, 96, 144);
     }
 </style>
