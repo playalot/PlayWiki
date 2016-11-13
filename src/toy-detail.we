@@ -110,6 +110,8 @@
     .toy-image-list-item {
       width: 375px;
       height: 375px;
-      background-color: #BBBBBB;
+      border-style: solid;
+      border-width: 2px;
+      border-color: #EEEEEE;
     }
 </style>

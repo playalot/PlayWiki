@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='main-container'>
+    <view style='width: 100%;'>
+          <image class='logo' mode='aspectFit' src='http://www.playalot.cn/assets/images/fd1cafdbaad63863acee81c90311138e-logo_text.png'></image>
+    </view>
+    <text class='search-bar' onclick='beginSearch'>Search for toy</text>
+    <view style='width:90%; margin-left: 5%; height:5px; flex-direction: row;'>
+      <image  class='sp-line' style="background-color: #40bbe1"></image>
+      <image  class='sp-line' style="background-color: #cc56a2"></image>
+      <image  class='sp-line' style="background-color: #fbbb1a"></image>
+      <image  class='sp-line' style="background-color: #94c16c"></image>
+      <image  class='sp-line' style="background-color: #3c3339"></image>
+    </view>
+  </view>
+</view>
+<view class='copyright'>
+    <text class='copyright-text'>Copyright © 2015-2016 PlayPlay 玩具控. All Rights Reserved.</text>
+</view>

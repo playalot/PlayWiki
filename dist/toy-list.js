@@ -89,9 +89,6 @@
 	      }
 	    },
 	    {
-	      "type": "image"
-	    },
-	    {
 	      "type": "image",
 	      "classList": [
 	        "sp-line"
@@ -101,9 +98,6 @@
 	        "height": function () {return (this.height) + 'px'},
 	        "backgroundColor": "#cc56a2"
 	      }
-	    },
-	    {
-	      "type": "image"
 	    },
 	    {
 	      "type": "image",
@@ -117,9 +111,6 @@
 	      }
 	    },
 	    {
-	      "type": "image"
-	    },
-	    {
 	      "type": "image",
 	      "classList": [
 	        "sp-line"
@@ -131,9 +122,6 @@
 	      }
 	    },
 	    {
-	      "type": "image"
-	    },
-	    {
 	      "type": "image",
 	      "classList": [
 	        "sp-line"
@@ -143,9 +131,6 @@
 	        "height": function () {return (this.height) + 'px'},
 	        "backgroundColor": "#3c3339"
 	      }
-	    },
-	    {
-	      "type": "image"
 	    }
 	  ]
 	}
@@ -2178,8 +2163,8 @@
 
 	 var apiURL = {
 	     baseurl: 'http://www.playalot.cn/',
-	     toySearch: function(s) {
-	       return this.baseurl + 'query/toys?q=' + s;
+	     toySearch: function(s, page) {
+	       return this.baseurl + 'query/toys?q=' + s + '&page=' + page;
 	     },
 	     toyDetail: function(s) {
 	       return this.baseurl + 'query/toy/' + s;
@@ -2196,8 +2181,8 @@
 	     });
 	 }
 
-	exports.searchToysByName = function (name, callback) {
-	    getData(apiURL.toySearch(name), callback);
+	exports.searchToysByName = function (name, page, callback) {
+	    getData(apiURL.toySearch(name, page), callback);
 	};
 
 
@@ -2278,22 +2263,28 @@
 	                "paddingLeft": 10
 	              },
 	              "events": {
+	                "input": "inputChange",
 	                "change": "inputComplete"
 	              }
 	            },
 	            {
-	              "type": "text",
-	              "style": {
-	                "color": "#888888",
-	                "fontSize": 40,
-	                "paddingTop": 20
-	              },
+	              "type": "container",
 	              "events": {
 	                "click": "starToSearch"
 	              },
-	              "attr": {
-	                "value": "↩︎"
-	              }
+	              "children": [
+	                {
+	                  "type": "text",
+	                  "style": {
+	                    "paddingTop": 20,
+	                    "color": "#888888",
+	                    "fontSize": 40
+	                  },
+	                  "attr": {
+	                    "value": "↩︎"
+	                  }
+	                }
+	              ]
 	            }
 	          ]
 	        },
@@ -2393,6 +2384,38 @@
 	              ]
 	            }
 	          ]
+	        },
+	        {
+	          "type": "loading",
+	          "classList": [
+	            "loading-view"
+	          ],
+	          "shown": function () {return this.canLoadMore},
+	          "attr": {
+	            "display": function () {return this.loadingDisplay}
+	          },
+	          "events": {
+	            "loading": "onloading"
+	          },
+	          "children": [
+	            {
+	              "type": "text",
+	              "style": {
+	                "textAlign": "center",
+	                "color": "#BBBBBB",
+	                "fontSize": 30
+	              },
+	              "attr": {
+	                "value": "Loading more..."
+	              }
+	            },
+	            {
+	              "type": "loading-indicator",
+	              "classList": [
+	                "indicator"
+	              ]
+	            }
+	          ]
 	        }
 	      ]
 	    }
@@ -2431,6 +2454,20 @@
 	    "marginLeft": 20,
 	    "backgroundColor": "#EEEEEE",
 	    "height": 2
+	  },
+	  "loading-view": {
+	    "width": 750,
+	    "height": 100,
+	    "display": "flex",
+	    "MsFlexAlign": "center",
+	    "WebkitAlignItems": "center",
+	    "WebkitBoxAlign": "center",
+	    "alignItems": "center"
+	  },
+	  "indicator": {
+	    "height": 60,
+	    "width": 60,
+	    "color": "#889967"
 	  }
 	}
 
@@ -2448,9 +2485,49 @@
 	  data: function () {return {
 	    toys: [],
 	    baseURL: '',
-	    searchText: ''
+	    searchText: '',
+	    page: 0,
+	    loadingDisplay: 'hide'
 	  }},
+	  computed: {
+	    canLoadMore: {
+	      get: function get() {
+	        var self = this;
+	        return self.searchText.length > 0;
+	      }
+	    }
+
+	  },
 	  methods: {
+	    changeSearchKeyword: function changeSearchKeyword(kw) {
+	      var self = this;
+	      if (kw != undefined && kw != null && self.searchText != kw) {
+	        self.searchText = kw;
+	        self.page = 0;
+	        apis.searchToysByName(encodeURI(kw), 0, function (json) {
+	          self.toys = json.data.toys;
+	        });
+	      }
+	    },
+	    loadMoreSearchResult: function loadMoreSearchResult(callback) {
+	      var self = this;
+	      self.page = self.page + 1;
+	      try {
+	        apis.searchToysByName(self.searchText, self.page, function (json) {
+	          var t = json.data.toys;
+	          var temp = self.toys;
+	          if (t != null && t.length > 0) {
+	            for (var i in t) {
+	              temp.push(t[i]);
+	            }
+	            self.toys = temp;
+	          }
+	          callback();
+	        });
+	      } catch (e) {
+	        callback();
+	      }
+	    },
 	    onToyItemClick: function onToyItemClick(e) {
 	      var self = this;
 	      var itemid = e.target.attr.toyid;
@@ -2460,27 +2537,28 @@
 	      };
 	      navigator.push(params, function (e) {});
 	    },
+	    onloading: function onloading(e) {
+	      var self = this;
+	      if (self.loadingDisplay != 'show' && self.searchText != '') {
+	        self.loadingDisplay = 'show';
+	        self.loadMoreSearchResult(function () {
+	          self.loadingDisplay = 'hide';
+	        });
+	      }
+	    },
+	    inputChange: function inputChange(e) {
+	      var self = this;
+	      self.changeSearchKeyword(e.value);
+	    },
 	    inputComplete: function inputComplete(e) {
 	      var self = this;
-	      var text = e.value;
-	      if (text != undefined && text != null && text != '' && text != self.searchText) {
-	        apis.searchToysByName(text, function (json) {
-	          self.toys = json.data.toys;
-	        });
-	      } else {
-	        navigator.pop({ 'animated': 'false' }, function (e) {});
-	      }
+	      self.changeSearchKeyword(e.value);
 	    },
 	    starToSearch: function starToSearch(e) {
 	      var self = this;
 	      var bar = self.$el('search-input-bar');
 	      var text = bar.text;
-	      if (text != undefined && text != null && text != "" && text != self.searchText) {
-	        self.searchText = text;
-	        apis.searchToysByName(text, function (json) {
-	          self.toys = json.data.toys;
-	        });
-	      }
+	      self.changeSearchKeyword(text);
 	    }
 	  },
 	  created: function created() {

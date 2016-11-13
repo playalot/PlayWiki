@@ -6,8 +6,12 @@
           autofocus="true"
           style='width: 700px; height: 95px; color: #888888; padding-left: 10px'
           placeholder='Please input keyword'
-          onchange='inputComplete'></input>
-        <text style='width50px; height95px; color: #888888; font-size: 40px; padding-top:20px' onclick='starToSearch'>↩︎</text>
+          oninput="inputChange"
+          onchange='inputComplete'>
+        </input>
+          <container onclick='starToSearch'>
+            <text style='padding-top: 20px; width50px; height95px; color: #888888; font-size: 40px; padding-top:20px'>↩︎</text>
+          </container>
       </div>
       <color-line width='750px' height='5'></color-line>
     </div>
@@ -24,6 +28,10 @@
         </container>
         <div class='toy-sp-line'></div>
       </cell>
+      <loading class="loading-view" if= {{canLoadMore}} display="{{loadingDisplay}}" onloading="onloading">
+        <text style="text-align: center; color: #BBBBBB; font-size: 30px">Loading more...</text>
+        <loading-indicator class="indicator" ></loading-indicator>
+      </loading>
     </list>
   </div>
 </template>
@@ -37,9 +45,50 @@
     data: {
       toys: [],
       baseURL: '',
-      searchText: ''
+      searchText: '',
+      page: 0,
+      loadingDisplay: 'hide',
+    },
+    computed: {
+      canLoadMore: {
+        get: function(){
+          var self = this;
+          return self.searchText.length > 0;
+        }
+      }
+
     },
     methods: {
+      changeSearchKeyword: function(kw) {
+        var self = this;
+        if (kw != undefined && kw != null && self.searchText != kw) {
+          self.searchText = kw;
+          self.page = 0;
+          apis.searchToysByName(encodeURI(kw), 0, function(json) {
+            self.toys = json.data.toys;
+          });
+        }
+      },
+      loadMoreSearchResult: function(callback) {
+        var self = this;
+        self.page = self.page + 1;
+        try {
+          apis.searchToysByName(self.searchText, self.page , function(json) {
+            var t = json.data.toys;
+            var temp = self.toys;
+            if (t != null && t.length > 0) {
+              for (var i in t) {
+                temp.push(t[i]);
+              }
+              self.toys = temp;
+            }
+            callback();
+          });
+        } catch(e) {
+          callback();
+        }
+
+      },
       onToyItemClick: function (e) {
         var self = this;
         var itemid = e.target.attr.toyid;
@@ -49,28 +98,29 @@
         };
         navigator.push(params, function (e) {});
       },
-      inputComplete: function(e) {
+      onloading: function(e) {
         var self = this;
-        var text = e.value;
-        if (text != undefined && text != null && text != '' && text != self.searchText) {
-          apis.searchToysByName(text, function(json) {
-            self.toys = json.data.toys;
+        if (self.loadingDisplay != 'show' && self.searchText != '') {
+          self.loadingDisplay = 'show';
+          self.loadMoreSearchResult(function() {
+            self.loadingDisplay = 'hide';
           });
-        } else {
-          navigator.pop({'animated': 'false'}, function(e){});
         }
 
+      },
+      inputChange: function(e){
+        var self = this;
+        self.changeSearchKeyword(e.value);
+      },
+      inputComplete: function(e) {
+        var self = this;
+        self.changeSearchKeyword(e.value);
       },
       starToSearch: function(e) {
         var self = this;
         var bar = self.$el('search-input-bar');
         var text = bar.text;
-        if (text!= undefined && text!= null && text != "" && text != self.searchText) {
-          self.searchText = text;
-          apis.searchToysByName(text, function(json) {
-            self.toys = json.data.toys;
-          });
-        }
+        self.changeSearchKeyword(text);
       }
     },
     created: function () {
@@ -110,5 +160,21 @@
     margin-left: 20px;
     background-color: #EEEEEE;
     height: 2px;
+  }
+  .loading-view {
+    width: 750;
+    height: 100;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+  .indicator {
+    height: 60;
+    width: 60;
+    color: #889967;
   }
 </style>

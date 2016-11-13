@@ -38,7 +38,7 @@
       return match && match[1]
     }
 
-    var loader = getUrlParam('loader') || 'xhr'
+    var loader = getUrlParam('loader') || 'source'
     var page = getUrlParam('page') || 'dist/main.js'
 
     window.weex.init({

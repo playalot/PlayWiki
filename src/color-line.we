@@ -1,10 +1,10 @@
 <template>
   <div style="flex-direction: row; width: {{width}}px; height: {{height}}px; background-color: #666666;">
-    <image class='sp-line' style="width: {{subWidth}}px; height: {{height}}px; background-color: #40bbe1"><image>
-    <image class='sp-line' style="width: {{subWidth}}px; height: {{height}}px; background-color: #cc56a2"><image>
-    <image class='sp-line' style="width: {{subWidth}}px; height: {{height}}px; background-color: #fbbb1a"><image>
-    <image class='sp-line' style="width: {{subWidth}}px; height: {{height}}px; background-color: #94c16c"><image>
-    <image class='sp-line' style="width: {{subWidth}}px; height: {{height}}px; background-color: #3c3339"><image>
+    <image class='sp-line' style="width: {{subWidth}}px; height: {{height}}px; background-color: #40bbe1"></image>
+    <image class='sp-line' style="width: {{subWidth}}px; height: {{height}}px; background-color: #cc56a2"></image>
+    <image class='sp-line' style="width: {{subWidth}}px; height: {{height}}px; background-color: #fbbb1a"></image>
+    <image class='sp-line' style="width: {{subWidth}}px; height: {{height}}px; background-color: #94c16c"></image>
+    <image class='sp-line' style="width: {{subWidth}}px; height: {{height}}px; background-color: #3c3339"></image>
   </div>
 </template>
 

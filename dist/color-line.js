@@ -88,9 +88,6 @@
 	      }
 	    },
 	    {
-	      "type": "image"
-	    },
-	    {
 	      "type": "image",
 	      "classList": [
 	        "sp-line"
@@ -100,9 +97,6 @@
 	        "height": function () {return (this.height) + 'px'},
 	        "backgroundColor": "#cc56a2"
 	      }
-	    },
-	    {
-	      "type": "image"
 	    },
 	    {
 	      "type": "image",
@@ -116,9 +110,6 @@
 	      }
 	    },
 	    {
-	      "type": "image"
-	    },
-	    {
 	      "type": "image",
 	      "classList": [
 	        "sp-line"
@@ -130,9 +121,6 @@
 	      }
 	    },
 	    {
-	      "type": "image"
-	    },
-	    {
 	      "type": "image",
 	      "classList": [
 	        "sp-line"
@@ -142,9 +130,6 @@
 	        "height": function () {return (this.height) + 'px'},
 	        "backgroundColor": "#3c3339"
 	      }
-	    },
-	    {
-	      "type": "image"
 	    }
 	  ]
 	}

@@ -81,8 +81,8 @@
 
 	 var apiURL = {
 	     baseurl: 'http://www.playalot.cn/',
-	     toySearch: function(s) {
-	       return this.baseurl + 'query/toys?q=' + s;
+	     toySearch: function(s, page) {
+	       return this.baseurl + 'query/toys?q=' + s + '&page=' + page;
 	     },
 	     toyDetail: function(s) {
 	       return this.baseurl + 'query/toy/' + s;
@@ -99,8 +99,8 @@
 	     });
 	 }
 
-	exports.searchToysByName = function (name, callback) {
-	    getData(apiURL.toySearch(name), callback);
+	exports.searchToysByName = function (name, page, callback) {
+	    getData(apiURL.toySearch(name, page), callback);
 	};
 
 
@@ -286,7 +286,9 @@
 	  "toy-image-list-item": {
 	    "width": 375,
 	    "height": 375,
-	    "backgroundColor": "#BBBBBB"
+	    "borderStyle": "solid",
+	    "borderWidth": 2,
+	    "borderColor": "#EEEEEE"
 	  }
 	}
 

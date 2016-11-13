@@ -89,9 +89,6 @@
 	      }
 	    },
 	    {
-	      "type": "image"
-	    },
-	    {
 	      "type": "image",
 	      "classList": [
 	        "sp-line"
@@ -101,9 +98,6 @@
 	        "height": function () {return (this.height) + 'px'},
 	        "backgroundColor": "#cc56a2"
 	      }
-	    },
-	    {
-	      "type": "image"
 	    },
 	    {
 	      "type": "image",
@@ -117,9 +111,6 @@
 	      }
 	    },
 	    {
-	      "type": "image"
-	    },
-	    {
 	      "type": "image",
 	      "classList": [
 	        "sp-line"
@@ -131,9 +122,6 @@
 	      }
 	    },
 	    {
-	      "type": "image"
-	    },
-	    {
 	      "type": "image",
 	      "classList": [
 	        "sp-line"
@@ -143,9 +131,6 @@
 	        "height": function () {return (this.height) + 'px'},
 	        "backgroundColor": "#3c3339"
 	      }
-	    },
-	    {
-	      "type": "image"
 	    }
 	  ]
 	}
@@ -2232,7 +2217,6 @@
 	module.exports = function(module, exports, __weex_require__){'use strict';
 
 	__webpack_require__(4);
-	var dom = __weex_require__('@weex-module/dom');
 	var apis = __webpack_require__(90);
 	var navigator = __weex_require__('@weex-module/navigator');
 
@@ -2274,8 +2258,8 @@
 
 	 var apiURL = {
 	     baseurl: 'http://www.playalot.cn/',
-	     toySearch: function(s) {
-	       return this.baseurl + 'query/toys?q=' + s;
+	     toySearch: function(s, page) {
+	       return this.baseurl + 'query/toys?q=' + s + '&page=' + page;
 	     },
 	     toyDetail: function(s) {
 	       return this.baseurl + 'query/toy/' + s;
@@ -2292,8 +2276,8 @@
 	     });
 	 }
 
-	exports.searchToysByName = function (name, callback) {
-	    getData(apiURL.toySearch(name), callback);
+	exports.searchToysByName = function (name, page, callback) {
+	    getData(apiURL.toySearch(name, page), callback);
 	};
 
 
